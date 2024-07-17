@@ -17,6 +17,8 @@ namespace _1.MODELOS
     
     public partial class frmModelos : Form
     {
+
+        string prueba;
         byte[] imageByte;
 
                                      private PrintDocument printDocument1 = new PrintDocument();  //para imprimir
