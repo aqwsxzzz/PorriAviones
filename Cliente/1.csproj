@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FDFC678A-B41B-4D61-9F21-5ABFD7BC3F6D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>_1</RootNamespace>
+    <AssemblyName>1</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="COMPRAS\Adquicisiones.cs" />
+    <Compile Include="COMPRAS\frmCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COMPRAS\frmCompras.Designer.cs">
+      <DependentUpon>frmCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="COMPRAS\FuncionesListadoCompras.cs" />
+    <Compile Include="Conexion.cs" />
+    <Compile Include="INSUMOS\frmEliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INSUMOS\frmEliminar.Designer.cs">
+      <DependentUpon>frmEliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INSUMOS\frmIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INSUMOS\frmIngreso.Designer.cs">
+      <DependentUpon>frmIngreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INSUMOS\frmListadosMat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INSUMOS\frmListadosMat.Designer.cs">
+      <DependentUpon>frmListadosMat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INSUMOS\frmMateriales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INSUMOS\frmMateriales.Designer.cs">
+      <DependentUpon>frmMateriales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INSUMOS\frmModificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INSUMOS\frmModificacion.Designer.cs">
+      <DependentUpon>frmModificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\frmListadoMod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODELOS\frmListadoMod.Designer.cs">
+      <DependentUpon>frmListadoMod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\FuncionesEliminar.cs" />
+    <Compile Include="MODELOS\EstadoAviones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODELOS\EstadoAviones.Designer.cs">
+      <DependentUpon>EstadoAviones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\frmEliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODELOS\frmEliminar.Designer.cs">
+      <DependentUpon>frmEliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\frmModelos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODELOS\frmModelos.Designer.cs">
+      <DependentUpon>frmModelos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\FuncionesSeleccionMaterial.cs" />
+    <Compile Include="MODELOS\FuncListadoMateriales.cs" />
+    <Compile Include="MODELOS\ListadoMateriales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODELOS\ListadoMateriales.Designer.cs">
+      <DependentUpon>ListadoMateriales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODELOS\SeleccionMaterialMod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MODELOS\SeleccionMaterialMod.Designer.cs">
+      <DependentUpon>SeleccionMaterialMod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INSUMOS\Stock.cs" />
+    <Compile Include="MODELOS\Aeronaves.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="COMPRAS\frmCompras.resx">
+      <DependentUpon>frmCompras.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INSUMOS\frmEliminar.resx">
+      <DependentUpon>frmEliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INSUMOS\frmIngreso.resx">
+      <DependentUpon>frmIngreso.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INSUMOS\frmListadosMat.resx">
+      <DependentUpon>frmListadosMat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INSUMOS\frmMateriales.resx">
+      <DependentUpon>frmMateriales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INSUMOS\frmModificacion.resx">
+      <DependentUpon>frmModificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODELOS\EstadoAviones.resx">
+      <DependentUpon>EstadoAviones.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODELOS\frmEliminar.resx">
+      <DependentUpon>frmEliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODELOS\frmListadoMod.resx">
+      <DependentUpon>frmListadoMod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODELOS\frmModelos.resx">
+      <DependentUpon>frmModelos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODELOS\ListadoMateriales.resx">
+      <DependentUpon>ListadoMateriales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MODELOS\SeleccionMaterialMod.resx">
+      <DependentUpon>SeleccionMaterialMod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\motor 2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9 disfuminado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20190331_185844  Disfuminado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cocu disfuminada.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\05%272.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\motor 21.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
