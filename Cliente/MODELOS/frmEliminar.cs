@@ -103,10 +103,6 @@ namespace _1.MODELOS
             }
             funcEliminar.EliminarModelo(frmModelos.dgvModelos1.CurrentRow.Cells[4].Value.ToString());
             this.Close();
-
-           // frmModelos .Invalidate();
-            //frmModelos.Update();
-           // frmModelos.Show();          
         }
 
         public void dgvListaMateriales_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
@@ -121,9 +117,21 @@ namespace _1.MODELOS
         private void botCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
-           frmModelos. botSalirMod.Visible = true ;
-          
-          
+            frmModelos.botSalirMod.Visible = true ;
+            frmModelos.botIngresarMod.Visible = true;
+            frmModelos.botModificarMod.Visible = true;
+            frmModelos.botModificarMod.Enabled = false;
+            frmModelos.botEliminarMod.Visible = true;
+            frmModelos.botEliminarMod.Enabled = false;
+            frmModelos.botListadoMod.Visible = true;
+
+            frmModelos.picboxFotoMod.Visible = false;
+
+            frmModelos.dgvModelos1.Visible = true ;
+            frmModelos.dgvModelos1.ClearSelection();
+            frmModelos.dgvModelos1.CurrentCell = null;
+            frmModelos.dgvModelos1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            frmModelos.dgvModelos1.MultiSelect = false;
         }
     }
 }

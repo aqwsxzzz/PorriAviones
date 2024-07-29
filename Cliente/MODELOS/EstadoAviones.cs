@@ -67,46 +67,42 @@ namespace _1.MODELOS
                 frmModelos.labAliasMod.BackColor = Color .Tan ;
                 frmModelos.labEstadoMod.Visible = true;
                 frmModelos.labDesdeMod.Visible = true;
-                frmModelos.labEstadoMod.Location = new Point(533, 738);
-                frmModelos.labDesdeMod.Location = new Point(764,738);
+                frmModelos.labEstadoMod.Location = new Point(583, 738);
+                frmModelos.labDesdeMod.Location = new Point(814,738);
                 frmModelos.labEstadoMod.BackColor = Color.Tan;
                 frmModelos.labDesdeMod.BackColor = Color.Tan;
 
                 frmModelos.texEstadoMod.Text = texEstadoEst.Text;
                 frmModelos.texEstadoMod.Visible = true;
-                frmModelos.texEstadoMod.Location = new Point(595, 735);
+                frmModelos.texEstadoMod.Location = new Point(645, 735);
                 frmModelos.texEstadoMod.BackColor = Color.Tan;
                 frmModelos.texDesdeMod.BackColor = Color.Tan;
-                frmModelos.texDesdeMod.Location = new Point(855,681);
+                frmModelos.texDesdeMod.Location = new Point(885,733);
 
                 frmModelos.botIngresarMaterialMod.Visible = true ;
-                frmModelos.botIngresarMaterialMod.Location = new Point(953,295);
+                frmModelos.botIngresarMaterialMod.Location = new Point(994,295);
                 frmModelos.botSalirMod.Visible = false;
                 frmModelos.botCancelarMod.Visible = true;
-                frmModelos.botCancelarMod.Location = new Point(953, 855);
+                frmModelos.botCancelarMod.Location = new Point(1042, 855);
                 frmModelos.botCargarFotoMod.Visible = true;
-                frmModelos.botCargarFotoMod.Location = new Point(750, 855);
+                frmModelos.botCargarFotoMod.Location = new Point(400, 855);
                 frmModelos.botGuardarMod.Visible = true;
-                frmModelos.botGuardarMod.Location = new Point(400, 850);
-                
+                frmModelos.botGuardarMod.Location = new Point(900, 855);
 
                 frmModelos.picboxRecuaMod3.Height = 570;
                 frmModelos.picboxRecuaEstadoFecha.Visible = true;
-                frmModelos.picboxRecuaEstadoFecha.Location = new Point(505,715);
+                frmModelos.picboxRecuaEstadoFecha.Location = new Point(555,715);
                 frmModelos.picboxRecuaEstadoFecha.Width = 470;
                 frmModelos.picboxRecuaEstadoFecha.BackColor = Color.Tan;
 
-                frmModelos.dgvDatosSelecciondos.Visible = true;
-                frmModelos.dgvDatosSelecciondos.BorderStyle = BorderStyle.None;
-                frmModelos.dgvDatosSelecciondos.BackgroundColor = Color.Tan;
-                frmModelos.dgvDatosSelecciondos.Location = new Point(385, 370);
-                frmModelos.dgvDatosSelecciondos.Width = 750;
-
-                frmModelos.dgvMaterialesenModificacion.Visible = false;
-
+                frmModelos.dgvMaterialesenModificacion.Visible = true;
+                frmModelos.dgvMaterialesenModificacion.Location = new Point(415, 370);
+                frmModelos.dgvMaterialesenModificacion.Width = 750;
+                                
                 frmModelos.dattimFechaMod.Focus();
                 frmModelos.dattimFechaMod.Visible = true;
-                frmModelos.dattimFechaMod.Location = new Point(850, 735);
+                frmModelos.dattimFechaMod.Location = new Point(900, 735);
+                frmModelos.dattimFechaMod.BringToFront();
 
             } else if (frmModelos.NuevoOModificacion == "Modificacion")
             {

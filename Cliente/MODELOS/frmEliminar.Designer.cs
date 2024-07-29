@@ -33,6 +33,7 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.botEliminar = new System.Windows.Forms.Button();
             this.botCancelar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaMateriales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvListaMateriales.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvListaMateriales.Location = new System.Drawing.Point(276, 45);
+            this.dgvListaMateriales.EnableHeadersVisualStyles = false;
+            this.dgvListaMateriales.Location = new System.Drawing.Point(276, 98);
             this.dgvListaMateriales.Name = "dgvListaMateriales";
             this.dgvListaMateriales.RowHeadersVisible = false;
             this.dgvListaMateriales.Size = new System.Drawing.Size(773, 416);
@@ -60,9 +62,9 @@
             // 
             this.botEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botEliminar.ForeColor = System.Drawing.Color.Red;
-            this.botEliminar.Location = new System.Drawing.Point(276, 489);
+            this.botEliminar.Location = new System.Drawing.Point(276, 569);
             this.botEliminar.Name = "botEliminar";
-            this.botEliminar.Size = new System.Drawing.Size(112, 37);
+            this.botEliminar.Size = new System.Drawing.Size(124, 48);
             this.botEliminar.TabIndex = 1;
             this.botEliminar.Text = "ELIMINAR";
             this.botEliminar.UseVisualStyleBackColor = true;
@@ -71,20 +73,31 @@
             // botCancelar
             // 
             this.botCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.botCancelar.Location = new System.Drawing.Point(937, 489);
+            this.botCancelar.Location = new System.Drawing.Point(932, 569);
             this.botCancelar.Name = "botCancelar";
-            this.botCancelar.Size = new System.Drawing.Size(112, 37);
+            this.botCancelar.Size = new System.Drawing.Size(124, 48);
             this.botCancelar.TabIndex = 2;
             this.botCancelar.Text = "CANCELAR";
             this.botCancelar.UseVisualStyleBackColor = true;
             this.botCancelar.Click += new System.EventHandler(this.botCancelar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(517, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(221, 25);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Materiales reciclables";
             // 
             // frmEliminar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(1077, 561);
+            this.ClientSize = new System.Drawing.Size(1077, 624);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.botCancelar);
             this.Controls.Add(this.botEliminar);
             this.Controls.Add(this.dgvListaMateriales);
@@ -95,6 +108,7 @@
             this.Load += new System.EventHandler(this.frmEliminar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaMateriales)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -103,5 +117,6 @@
         public System.Windows.Forms.DataGridView dgvListaMateriales;
         private System.Windows.Forms.Button botEliminar;
         private System.Windows.Forms.Button botCancelar;
+        private System.Windows.Forms.Label label1;
     }
 }

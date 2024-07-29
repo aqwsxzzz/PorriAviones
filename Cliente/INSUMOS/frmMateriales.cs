@@ -30,17 +30,12 @@ namespace _1.INSUMOS
         {
             InitializeComponent();
 
-            //  comboxFamiliaMat.DropDownClosed += new EventHandler(ComboBox_DropDownClosed);
-
-
             this.Load += frmMateriales_Load;
 
             texNuevoFam.KeyPress += new KeyPressEventHandler(texNuevoFam_KeyPress);  //Instancia el evento Keypress para que cuando con un solo enter entre en la ficha.
 
             this.Cursor = Cursors.Arrow;
-
-            // Configurar el DataGridView
-
+             
             dgvMateriales.AutoGenerateColumns = false;
 
             dgvMateriales.ColumnCount = 13;
@@ -48,6 +43,7 @@ namespace _1.INSUMOS
             dgvMateriales.Columns[0].Name = "Familia";
             dgvMateriales.Columns[0].HeaderText = "Familia";
             dgvMateriales.Columns[0].DataPropertyName = "Familia";
+            dgvMateriales.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgvMateriales.Columns[1].Name = "Grupo";
             dgvMateriales.Columns[1].HeaderText = "Grupo";
@@ -60,6 +56,7 @@ namespace _1.INSUMOS
             dgvMateriales.Columns[3].Name = "Medidas";
             dgvMateriales.Columns[3].HeaderText = "Medidas";
             dgvMateriales.Columns[3].DataPropertyName = "Medidas";
+            dgvMateriales.Columns[3].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgvMateriales.Columns[4].Name = "Codigo";
             dgvMateriales.Columns[4].HeaderText = "Codigo";
@@ -99,12 +96,13 @@ namespace _1.INSUMOS
             dgvMateriales.Columns[12].Visible = false;
             
             dgvMateriales.Location = new Point(365, 295);
-            System.Drawing.Size Tamaño = new System.Drawing.Size(1215, 628);
+            System.Drawing.Size Tamaño = new System.Drawing.Size(1240, 628);
             dgvMateriales.Size = Tamaño;
-            dgvMateriales.BorderStyle = BorderStyle.None;
+            dgvMateriales.BorderStyle = BorderStyle.Fixed3D  ;
             dgvMateriales.DefaultCellStyle.Font = new Font("Arial", 11);
             dgvMateriales.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9, FontStyle.Bold);
-
+            dgvMateriales.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+         
             labTituloDgv.Location = new Point(1340, 253);
 
             botIngresarMat.Visible = true;
@@ -184,47 +182,34 @@ namespace _1.INSUMOS
             dgvMateriales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMateriales.MultiSelect = false;
 
-
-            dgvMateriales.Columns[0].Width = 125;  //Familia
-            dgvMateriales.Columns[0].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            dgvMateriales.Columns[1].Width = 135;  //Grupo
-            dgvMateriales.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
-            dgvMateriales.Columns[2].Width = 135;  //Caracteristica
-            dgvMateriales.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
+            dgvMateriales.Columns[0].Width = 135;  //Familia
+           
+            dgvMateriales.Columns[1].Width = 155;  //Grupo
+          
+            dgvMateriales.Columns[2].Width = 165;  //Caracteristica
+          
             dgvMateriales.Columns[3].Width = 120;  //Medidas
-            dgvMateriales.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
+          
             dgvMateriales.Columns[4].Width = 120;  //Fabricante
-            dgvMateriales.Columns[4].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgvMateriales.Columns[5].Width = 120;  //´Codigo
-            dgvMateriales.Columns[5].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            dgvMateriales.Columns[6].Width = 120;  //Ubicacion
+            dgvMateriales.Columns[6].Width = 120;  //Ubicacion 
             dgvMateriales.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvMateriales.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgvMateriales.Columns[7].Width = 42;  //Estado
-            dgvMateriales.Columns[7].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvMateriales.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgvMateriales.Columns[8].Width = 50;  //Cantidad
             dgvMateriales.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
-            dgvMateriales.Columns[8].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             dgvMateriales.Columns[9].Width = 50;  //Disponible
             dgvMateriales.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
-            dgvMateriales.Columns[9].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-            dgvMateriales.Columns[10].Width = 110;  //Tipo
-            dgvMateriales.Columns[10].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvMateriales.Columns[10].Width = 70;  //Tipo
 
             dgvMateriales.Columns[11].Width = 70;  //Valor
             dgvMateriales.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
-            dgvMateriales.Columns[11].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             botCancelarIngresoMat.Visible = false;
             botSalirMat.Visible = true;
@@ -270,41 +255,35 @@ namespace _1.INSUMOS
             botListarMat.Visible = false;
             botListarMat.Location = new Point(1020, 940);
             botCancelarMat.Visible = true;
-            botCancelarMat.Location = new Point(1100, 620);
+            botCancelarMat.Location = new Point(1051, 620);
             botCancelarMat.Height = 42;
             System.Drawing.Size Tam = new System.Drawing.Size(109, 20);
             botIngresarFam.Visible = true;
-            botIngresarFam.Location = new Point(670, 620);
+            botIngresarFam.Location = new Point(719, 620);
             botSalirMat.Visible = false;
-          //  botListarMat.Visible = false;
 
             picboxFotoMat.Visible = false;
             picboxTituloDgv.Visible = false;
             picboxRecuadroGrande.Visible = true;
             picboxRecuadroGrande.Height = 300;
-            picboxRecuadroGrande.Width = 560;
-            picboxRecuadroGrande.Location = new Point(670, 302);
+            picboxRecuadroGrande.Width = 460;
+            picboxRecuadroGrande.Location = new Point(720, 302);
             picboxRecuaBuscar.Visible = false;
 
             listFamiliaMat.Visible = true;
-            listFamiliaMat.Location = new Point(1028, 304);
+            listFamiliaMat.Location = new Point(978, 304);
             listFamiliaMat.Width = 200;
             listFamiliaMat.Height = 184;
 
             dgvMateriales.Visible = false;
 
-           NuevoModificacionOEliminacion = "Nuevo";
-         //   busco = true;
+            NuevoModificacionOEliminacion = "Nuevo";
 
-           
                 dgvMateriales.ClearSelection();
                 dgvMateriales.Rows[rowIndex].Selected = true;
                 dgvMateriales.CurrentCell = dgvMateriales.Rows[rowIndex].Cells[0];
-                // Establece la celda actual para la fila seleccionada
 
-           
-
-            picboxRecuaMat1_AutoSize();
+                picboxRecuaMat1_AutoSize();
         }
 
         private void botModificarMat_Click(object sender, EventArgs e)
@@ -324,19 +303,13 @@ namespace _1.INSUMOS
                 botListarMat.Visible = false;
                 botBuscarMat.Visible = false;
                 botSalirMat.Visible = false;
+                botCancelarIngresoMat.Visible = false;
 
                 picboxRecuaBuscar.Visible = false;
-                               
+
                 frmModificacion Modifica = new frmModificacion(this);
 
                 Insumos.Stock objetostock = new Insumos.Stock();
-              /* // foreach (string item in comboxFamiliaMat.Items)
-                {
-                    if (item == dgvMateriales.CurrentRow.Cells[0].Value.ToString())
-                    {
-                        comboxFamiliaMat.SelectedItem = dgvMateriales.CurrentRow.Cells[0].Value.ToString();
-                    }
-                }*/
 
                 Modifica.texGrupo.Text = dgvMateriales.CurrentRow.Cells[1].Value.ToString();
                 Modifica.texCaracteristica.Text = dgvMateriales.CurrentRow.Cells[2].Value.ToString();
@@ -355,7 +328,6 @@ namespace _1.INSUMOS
                 Modifica.ShowDialog();
 
                 modif = true;
-
             }
             else MessageBox.Show("Por favor selecciona un material para modificar.");
         }
@@ -366,8 +338,6 @@ namespace _1.INSUMOS
             Buscar = false;
             frmEliminar frmEliminar = new frmEliminar(this);
             frmEliminar.ShowDialog();
-
-            
 
             using (frmEliminar formEliminar = new frmEliminar(this))
             {
@@ -392,8 +362,7 @@ namespace _1.INSUMOS
                     botEliminarMat.Location = new Point(692, 940);
                     botListarMat.Location = new Point(856, 940);
                 };
-                
-            }
+             }
         }
 
         private void dgvMateriales_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -404,13 +373,9 @@ namespace _1.INSUMOS
 
                 picboxTituloDgv.Visible = false;
 
-          //      comboxFamiliaMat.Text = dgvMateriales.CurrentRow.Cells[0].Value.ToString();
-
                 dgvMateriales.Visible = false;
             }
         }
-
-        
 
         private void botRecuaCancelarMat_Click(object sender, EventArgs e)
         {
@@ -457,12 +422,8 @@ namespace _1.INSUMOS
 
             modif = false;
                         
-            //labIngresoMat.Location = new Point(0, 0);
-            labIngresoMat.Font = new Font("Arial", 10, FontStyle.Regular);
-            //labTituloMat.Location = new Point(0, 0);
+             labIngresoMat.Font = new Font("Arial", 10, FontStyle.Regular);
         }
-
-
 
         private void comboxfamilia_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -481,7 +442,6 @@ namespace _1.INSUMOS
                 System.Drawing.Size nuevoTamaño = new System.Drawing.Size(790, 304);
                 dgvMaterialesEnExistencia.Size = nuevoTamaño;
                 INSUMOS.frmIngreso Ingre = new INSUMOS.frmIngreso(this);
-            //    Ingre.texFamilia.Text = comboxFamiliaMat.Text;
                 Ingre.texGrupo.Select();
                 Ingre.ShowDialog();
             }
@@ -538,7 +498,7 @@ namespace _1.INSUMOS
         {
             Insumos.Stock objetostock = new Insumos.Stock();
             objetostock.GuardarFamilia(texNuevoFam);
-        //   objetostock.mostrarFamilia(comboxFamiliaMat);
+
             labFamiliaMat.Visible = true;
 
             texNuevoFam.Visible = false;
@@ -660,7 +620,6 @@ namespace _1.INSUMOS
 
             listFamiliaMat.Visible = false;
             dgvMateriales.Columns[0].Visible = true;
-
         }
 
         private void botAceptarIngresoMat_Click(object sender, EventArgs e)
@@ -706,7 +665,7 @@ namespace _1.INSUMOS
             dgvMateriales.Location = new Point(180, 295);
 
             }
-            else dgvMateriales.Location = new Point(50, 295);
+            else dgvMateriales.Location = new Point(40, 295);
             Insumos.Stock stock = new Insumos.Stock();
             string IdMaterial = dgvMateriales.CurrentRow.Cells[12].Value.ToString();
             stock.BuscarFotoPorIdMaterial(IdMaterial, picboxFotoMat);
@@ -738,10 +697,10 @@ namespace _1.INSUMOS
 
             botModificarMat.Enabled = true;
             botModificarMat.Font = new Font(botModificarMat.Font, FontStyle.Bold);
+            botModificarMat.BackColor = SystemColors.ControlLight;
             botEliminarMat.Enabled = true;
             botEliminarMat.Font = new Font(botEliminarMat.Font, FontStyle.Bold);
-
-
+            botEliminarMat.BackColor = SystemColors.ControlLight;
         }
 
         private void texNuevoFam_KeyPress(object sender, KeyPressEventArgs e)
@@ -760,6 +719,8 @@ namespace _1.INSUMOS
             Buscar = false;
             labTituloDgv.Visible = false;
 
+            texFamiliaBuscar.Visible = false;
+
             botIngresarMat.Visible = false;
             botModificarMat.Visible = false;
             botEliminarMat.Visible = false;
@@ -772,10 +733,13 @@ namespace _1.INSUMOS
                        
             dgvMateriales.Visible = false;
 
+            listFamiliaMat.Visible = false;
+
             frmListadosMat ListadoMat = new frmListadosMat(this);
             ListadoMat.Location = new Point(420, 200);
             ListadoMat.botSalirListaMat.Visible = true;
             ListadoMat.botSalirListaMat.Focus();
+
             ListadoMat.ShowDialog();
         }
 
@@ -796,7 +760,7 @@ namespace _1.INSUMOS
             botIngresarFam.Location = new Point(botIngresarFam.Location.X, botIngresarFamNuevoY);
             botCancelarMat.Location = new Point(botCancelarMat.Location.X, botIngresarFamNuevoY);
             int heightLabFamiliaMat = 300 + (nuevoLargo / 2) - 12;
-            labFamiliaMat.Location = new Point(887, heightLabFamiliaMat);
+            labFamiliaMat.Location = new Point(837, heightLabFamiliaMat);
         }
 
         private void comboxColumnas_SelectedIndexChanged(object sender, EventArgs e)
@@ -891,14 +855,8 @@ namespace _1.INSUMOS
             dgvMateriales.CurrentCell = null;
             dgvMateriales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvMateriales.MultiSelect = false;
-          
         }
-
-        private void botRecuaEliminarMat_Click(object sender, EventArgs e)
-        {
-
-        }
-
+         
         private void texFamiliaBuscar_Click(object sender, EventArgs e)
         {
             listFamiliaMat.Visible = true;

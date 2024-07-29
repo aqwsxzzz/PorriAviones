@@ -136,7 +136,7 @@
             this.labFamiliaMat.BackColor = System.Drawing.Color.LightSteelBlue;
             this.labFamiliaMat.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labFamiliaMat.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labFamiliaMat.Location = new System.Drawing.Point(744, 492);
+            this.labFamiliaMat.Location = new System.Drawing.Point(713, 426);
             this.labFamiliaMat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labFamiliaMat.Name = "labFamiliaMat";
             this.labFamiliaMat.Size = new System.Drawing.Size(123, 31);
@@ -173,6 +173,7 @@
             // 
             // botModificarMat
             // 
+            this.botModificarMat.BackColor = System.Drawing.Color.LightSteelBlue;
             this.botModificarMat.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botModificarMat.Location = new System.Drawing.Point(528, 940);
             this.botModificarMat.Margin = new System.Windows.Forms.Padding(4);
@@ -180,7 +181,7 @@
             this.botModificarMat.Size = new System.Drawing.Size(144, 51);
             this.botModificarMat.TabIndex = 4;
             this.botModificarMat.Text = "MODIFICAR";
-            this.botModificarMat.UseVisualStyleBackColor = true;
+            this.botModificarMat.UseVisualStyleBackColor = false;
             this.botModificarMat.Visible = false;
             this.botModificarMat.Click += new System.EventHandler(this.botModificarMat_Click);
             // 
@@ -193,7 +194,7 @@
             this.botEliminarMat.Size = new System.Drawing.Size(144, 51);
             this.botEliminarMat.TabIndex = 4;
             this.botEliminarMat.Text = "ELIMINAR";
-            this.botEliminarMat.UseVisualStyleBackColor = true;
+            this.botEliminarMat.UseVisualStyleBackColor = false;
             this.botEliminarMat.Visible = false;
             this.botEliminarMat.Click += new System.EventHandler(this.botEliminarMat_Click);
             // 
@@ -332,7 +333,6 @@
             this.botRecuaEliminarMat.Text = "ELIMINAR";
             this.botRecuaEliminarMat.UseVisualStyleBackColor = false;
             this.botRecuaEliminarMat.Visible = false;
-            this.botRecuaEliminarMat.Click += new System.EventHandler(this.botRecuaEliminarMat_Click);
             // 
             // botIngresarFam
             // 
@@ -421,7 +421,7 @@
             // 
             // botGuardarFam
             // 
-            this.botGuardarFam.Location = new System.Drawing.Point(972, 605);
+            this.botGuardarFam.Location = new System.Drawing.Point(959, 601);
             this.botGuardarFam.Margin = new System.Windows.Forms.Padding(4);
             this.botGuardarFam.Name = "botGuardarFam";
             this.botGuardarFam.Size = new System.Drawing.Size(124, 41);
@@ -434,7 +434,7 @@
             // botCancelarFam
             // 
             this.botCancelarFam.BackColor = System.Drawing.SystemColors.Window;
-            this.botCancelarFam.Location = new System.Drawing.Point(1108, 605);
+            this.botCancelarFam.Location = new System.Drawing.Point(1095, 601);
             this.botCancelarFam.Margin = new System.Windows.Forms.Padding(4);
             this.botCancelarFam.Name = "botCancelarFam";
             this.botCancelarFam.Size = new System.Drawing.Size(124, 41);
@@ -459,7 +459,7 @@
             // 
             // botListarMat
             // 
-            this.botListarMat.Location = new System.Drawing.Point(1020, 940);
+            this.botListarMat.Location = new System.Drawing.Point(1021, 948);
             this.botListarMat.Name = "botListarMat";
             this.botListarMat.Size = new System.Drawing.Size(144, 51);
             this.botListarMat.TabIndex = 36;

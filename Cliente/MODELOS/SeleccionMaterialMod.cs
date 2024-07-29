@@ -28,6 +28,9 @@ namespace _1.MODELOS
         // Eliminacion de material reciclable en modelo.
         List<string> IdMaterialReciclableAEliminar = new List<string>();
         List<string> CantidadUsadaDeMaterial = new List<string>();
+        List<string> IdAcopioDeMaterialReciblableAEliminar = new List<string>();
+
+        // Eliminacion de material NO reciclable en modelo.
         List<string> IdMaterialNoReciclableAEliminar = new List<string>();
 
 
@@ -37,6 +40,8 @@ namespace _1.MODELOS
             frmModelos = principal;
            
             this.Location = new Point(356,158);
+
+            this.Shown += new EventHandler(SeleccionMaterialMod_Shown);
 
             MODELOS.FuncionesSeleccionMaterial FuncionesSel = new MODELOS.FuncionesSeleccionMaterial();
             FuncionesSel.mostrarFamilias(comboxFamiliasSel);
@@ -242,6 +247,7 @@ namespace _1.MODELOS
             {
                 botSalirSel.Text = "CANCELAR";
                 botSalirSel.Visible = true;
+
                 botSalirSel.Location = new Point(1020,245);
             }
         }
@@ -251,7 +257,7 @@ namespace _1.MODELOS
             frmModelos.labModeloMod.BackColor = Color.Tan;
             frmModelos.labModeloMod.Location = new Point(534, 286);
             frmModelos.labAliasMod.BackColor = Color.Tan;
-            frmModelos.labAliasMod.Location = new Point(783, 286);
+            frmModelos.labAliasMod.Location = new Point(760, 286);
             frmModelos.labEstadoMod.Visible = true;
             frmModelos.labEstadoMod.Location = new Point(593, 730);
             frmModelos.labEstadoMod.BackColor = Color.Tan;
@@ -266,14 +272,14 @@ namespace _1.MODELOS
             frmModelos.texModeloMod.BackColor = Color.Tan;
             frmModelos.texModeloMod.Location = new Point(534, 305);
             frmModelos.texAliasMod.BackColor = Color.Tan;
-            frmModelos.texAliasMod.Location = new Point(783, 305);
+            frmModelos.texAliasMod.Location = new Point(760, 305);
             frmModelos.texEstadoMod.Visible = true;
             frmModelos.texEstadoMod.Location = new Point(665, 729);
             frmModelos.texEstadoMod.BackColor = Color.Tan;
             frmModelos.texDesdeMod.Location = new Point(910,724);
 
             frmModelos.botIngresarMaterialMod.Visible = true;
-            frmModelos.botIngresarMaterialMod.Location = new Point(1030, 298);
+            frmModelos.botIngresarMaterialMod.Location = new Point(1021, 298);
             frmModelos.botCancelarMod.Location = new Point(1079, 829);
             frmModelos.botGuardarMod.Visible = false;
             frmModelos.botCancelarMod.Visible = true;
@@ -283,6 +289,7 @@ namespace _1.MODELOS
             frmModelos.picboxRecuaMod3.Visible = true;
             frmModelos.picboxRecuaMod3.BackColor = Color.Tan;
             frmModelos.picboxRecuaMod3.Location = new Point(402, 257);
+            frmModelos.picboxRecuaMod3.Width = 810;
             frmModelos.picboxRecuaMod3.Height = 550;
             frmModelos.picboxRecuaMod4.Visible = true;
             frmModelos.picboxRecuaMod4.Location = new Point(959,213);
@@ -299,13 +306,14 @@ namespace _1.MODELOS
 
             frmModelos.dattimFechaMod.Location = new Point(910,727);
 
+            frmModelos .dgvMaterialesenModificacion.Location = new Point(437, 370);
             dgvMaterialesSeleccionadosSel.Visible = true;
 
             frmModelos.dgvDatosSelecciondos .Visible = false;
             frmModelos.dgvMaterialesenModificacion.Visible = true; 
             frmModelos.dgvMaterialesenModificacion.Width = 755;
             frmModelos.dgvMaterialesenModificacion.Height = 332;
-            frmModelos.dgvMaterialesenModificacion.Location = new Point(437, 370);
+           // frmModelos.dgvMaterialesenModificacion.Location = new Point(400, 370);
                     
             this.Close();
         }
@@ -324,7 +332,6 @@ namespace _1.MODELOS
             texFamiliaSel.Visible = true ;
             texFamiliaSel.Location = new Point(0, 41);
             texFamiliaSel.BackColor = Color.Bisque;
-            
             texCantidadMaterialSel.Focus();
             }
             dgvSeleccionstockSel.ClearSelection();
@@ -332,7 +339,7 @@ namespace _1.MODELOS
             dgvSeleccionstockSel.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvSeleccionstockSel.MultiSelect = false;
         }
-  
+
         private void texCantidadMaterialSel_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == '\r')
@@ -383,9 +390,10 @@ namespace _1.MODELOS
 
                         if (dgvMaterialesSeleccionadosSel.RowCount == 1)
                         {
-                            this.Height = 850;
-                            dgvMaterialesSeleccionadosSel .Location =new Point (240,490);
-                            botSalirSel.Location = new Point (855, 793);
+                            this.Height = 900;
+                            dgvMaterialesSeleccionadosSel .Location =new Point (210,470);
+                            dgvMaterialesSeleccionadosSel.Width = 730;
+                            botSalirSel.Location = new Point (805, 835);
                             botSalirSel.Text = "SALIR"; 
                         }
                         decimal nuevoDisponible = disponible - cantSeleccionada;
@@ -397,12 +405,12 @@ namespace _1.MODELOS
                         {
                             dgvMaterialesSeleccionadosSel.Rows[0].Selected = false;
                         }
-
                     }
-                    else
-                        MessageBox.Show("La cantidad supera lo disponible");
+                else
+                       MessageBox.Show("La cantidad supera lo disponible");
                 }
-            else MessageBox.Show("La familia seleccionada no tiene materiales ingresados");
+            else
+                    MessageBox.Show("La familia seleccionada no tiene materiales ingresados");
             }
         }
 
@@ -411,12 +419,17 @@ namespace _1.MODELOS
             comboxFamiliasSel.DroppedDown = true;
             comboxFamiliasSel.Visible = true;
             texFamiliaSel.Visible = false;
+
+            dgvMaterialesSeleccionadosSel.ClearSelection();
+            dgvMaterialesSeleccionadosSel.CurrentCell = null;
+            dgvMaterialesSeleccionadosSel.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvMaterialesSeleccionadosSel.MultiSelect = false;
         }
 
         private void botAceptarSel_Click(object sender, EventArgs e)
         {
             frmModelos.labModeloMod.Location = new Point(534, 286);
-            frmModelos.labAliasMod.Location = new Point(783, 286);
+            frmModelos.labAliasMod.Location = new Point(760, 286);
             frmModelos.labModificaMod.Location = new Point(976, 224);
             frmModelos.labIngresoMod.Location = new Point(1166,223);
             frmModelos.labTituloMod.Location = new Point(872, 96);
@@ -424,7 +437,7 @@ namespace _1.MODELOS
             frmModelos.texModeloMod.BackColor = Color.Tan;
             frmModelos.texModeloMod.Location = new Point(534, 305);
             frmModelos.texAliasMod.BackColor = Color.Tan;
-            frmModelos.texAliasMod.Location = new Point(783, 305);
+            frmModelos.texAliasMod.Location = new Point(760, 305);
 
             frmModelos.botSalirMod.Visible = false;
             frmModelos.botIngresarMaterialMod.Visible = false;
@@ -440,14 +453,7 @@ namespace _1.MODELOS
             frmModelos.picboxRecuaModeloAlias.Location = new Point(498,280);
             frmModelos.picboxRecuaModeloAlias.BackColor = Color.Tan;
             frmModelos.picboxFotoMod.Visible = true;
-
-           /* frmModelos.dgvDatosSelecciondos.Visible = true;
-            frmModelos.dgvDatosSelecciondos.Location = new Point(423, 370);
-            frmModelos.dgvDatosSelecciondos.BackgroundColor  = Color.Tan ;
-            frmModelos.dgvDatosSelecciondos.Width = 733;
-            frmModelos.dgvDatosSelecciondos.Height = 300;
-            frmModelos.dgvDatosSelecciondos.Columns.Clear();*/
-
+                       
             foreach (DataGridViewColumn column in dgvMaterialesSeleccionadosSel.Columns)
             {
                 frmModelos.dgvDatosSelecciondos.Columns.Add(column.Clone() as DataGridViewColumn);
@@ -488,8 +494,10 @@ namespace _1.MODELOS
                     {
                         frmModelos.IdMaterialReciclableAEliminarMod.Add(IdMaterialReciclableAEliminar[i]);
                         frmModelos.CantidadUsadaDeMaterialMod.Add(CantidadUsadaDeMaterial[i]);
+                        frmModelos.IdAcopioDeMaterialReciblableAEliminarMod.Add(IdAcopioDeMaterialReciblableAEliminar[i]);
                     }
                 }
+                frmModelos.botGuardarMod.Visible = true;
             }
             if (IdMaterialNoReciclableAEliminar.Count > 0)
             {
@@ -497,6 +505,7 @@ namespace _1.MODELOS
                 {
                     frmModelos.IdMaterialNoReciclableAEliminarMod.Add(IdMaterialNoReciclableAEliminar[i]);
                 }
+                frmModelos.botGuardarMod.Visible = true;
             }
             if (IdMaterialList.Count() > 0)
             {
@@ -506,13 +515,16 @@ namespace _1.MODELOS
                     frmModelos.texCantidadVieja.Add(texCantidadViejaList[i]);
                     frmModelos.IdMaterial.Add(IdMaterialList[i]);
                 }
+                frmModelos.botGuardarMod.Visible = true;
             }
             if (frmModelos.NuevoOModificacion == "Nuevo")
             {
                 MODELOS.frmEstadoAviones frmEstadoAviones = new MODELOS.frmEstadoAviones(frmModelos);
-                frmEstadoAviones.Location = new Point(660, 479);
+                frmEstadoAviones.Location = new Point(460, 450);
                 frmEstadoAviones.Show();
                 frmEstadoAviones.botEstadoEst.Focus();
+                frmModelos.labIngresoMod.Location = new Point(969, 223);
+                frmModelos.picboxRecuaMod4.Location = new Point(924, 213);
             }
             else if (frmModelos.NuevoOModificacion == "Modificacion")
             {
@@ -541,20 +553,6 @@ namespace _1.MODELOS
                 frmModelos.botCancelarMod.Visible = true;
 
                 dgvMaterialesSeleccionadosSel.Visible = true;
-                
-                frmModelos.dgvDatosSelecciondos.BorderStyle = BorderStyle.None;
-                frmModelos.dgvDatosSelecciondos.Location = new Point(430, 370);
-                frmModelos.dgvDatosSelecciondos.BackgroundColor = Color.Tan;
-                frmModelos.dgvDatosSelecciondos.Width = 750;
-                frmModelos.dgvDatosSelecciondos.Height = 326;
-
-                
-                
-                frmModelos.dgvDatosSelecciondos.ClearSelection();
-                frmModelos.dgvDatosSelecciondos.CurrentCell = null;
-                frmModelos.dgvDatosSelecciondos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                frmModelos.dgvDatosSelecciondos.MultiSelect = false;
-
                 frmModelos.dgvMaterialesenModificacion.Visible = true;
             }
             this.Close();
@@ -608,8 +606,8 @@ namespace _1.MODELOS
                     if (resultado == DialogResult.Yes)
                     {
                         IdMaterialReciclableAEliminar.Add(dgvMaterialesSeleccionadosSel.CurrentRow.Cells[11].Value.ToString());
-                        CantidadUsadaDeMaterial.Add(dgvMaterialesSeleccionadosSel.CurrentRow.Cells[5].Value.ToString());
-                        MessageBox.Show(IdMaterialReciclableAEliminar[0], CantidadUsadaDeMaterial[0]);
+                        CantidadUsadaDeMaterial.Add(dgvMaterialesSeleccionadosSel.CurrentRow.Cells[6].Value.ToString());
+                        IdAcopioDeMaterialReciblableAEliminar.Add(dgvMaterialesSeleccionadosSel.CurrentRow.Cells[9].Value.ToString());
                     }
                     else
                     {
@@ -623,6 +621,11 @@ namespace _1.MODELOS
                 dgvMaterialesSeleccionadosSel.MultiSelect = false;
                 botBorrarMaterialSel.Enabled = false;
             }
+            frmModelos.dgvModelos1.Visible = true;
+            frmModelos.botIngresarMod.Visible = true;
+            frmModelos.botModificarMod.Visible = true;
+            frmModelos.botEliminarMod.Visible = true;
+            frmModelos.botListadoMod.Visible = true;
         }
 
         private void dgvMaterialesSeleccionadosSel_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -667,7 +670,7 @@ namespace _1.MODELOS
                                 CantidadDeMaterialAEnviar[i] = (dgvMaterialesSeleccionadosSel.CurrentRow.Cells[5].Value.ToString());
                                 CantidadDisponibleActualizadaAEnviar[i] = (decimal.Parse(CantidadDisponibleActualizadaAEnviar[i]) + (decimal.Parse(texCantViejaSel.Text) - decimal.Parse(dgvMaterialesSeleccionadosSel.CurrentRow.Cells[5].Value.ToString())) ).ToString();
                             }
-                        }
+                          }
                     } else
                     {
                         NuevaCantidadxModeloList.Add(dgvMaterialesSeleccionadosSel.CurrentRow.Cells[5].Value.ToString());
@@ -704,8 +707,24 @@ namespace _1.MODELOS
 
         private void dgvMaterialesSeleccionadosSel_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            labCantAsignada.Visible = false;
+
+            texCantidadMaterialSel.Visible = false;
+
             botBorrarMaterialSel.ForeColor = Color.Blue;
             botBorrarMaterialSel.Enabled = true;
+
+            picboxRecuaCantAsignada.Visible = false;
+
+            dgvSeleccionstockSel.ClearSelection();
+            dgvSeleccionstockSel.CurrentCell = null;
+            dgvSeleccionstockSel.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSeleccionstockSel.MultiSelect = false;
+        }
+
+        private void SeleccionMaterialMod_Shown(object sender, EventArgs e)
+        {
+            botAceptarSel.Focus();
         }
     }
 }

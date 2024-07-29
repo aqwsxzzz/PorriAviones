@@ -67,7 +67,7 @@ namespace _1.MODELOS
                 dgvListadoMaterialesLis.DataSource = null;
 
                 string query = "select Fam.Familia, Mat.Grupo, Mat.Caracteristica, Mat.Medidas, Mat.Codigo, MatMod.CantidadxModelo, Mat.Tipo, Mat.IdMaterial, " +
-                               "MatMod.IdMaterialesModelo " +
+                               "MatMod.IdMaterialesModelo, A.IdAcopio " +
                                "from MaterialesModelo MatMod " +
                                "join Materiales Mat on MatMod.IdMaterial = Mat.IdMaterial " +
                                "join Familiares Fam on Mat.idFamilia = Fam.IdFamilia " +

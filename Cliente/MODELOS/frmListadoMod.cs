@@ -23,6 +23,12 @@ namespace _1.MODELOS
         {
             frmModelos.botSalirMod.Visible = true;
             frmModelos.dgvModelos1.Visible = true;
+
+            frmModelos.botIngresarMod.Visible = true;
+            frmModelos.botModificarMod.Visible = true;
+            frmModelos.botEliminarMod.Visible = true;
+            frmModelos.botListadoMod.Visible = true;
+
             this.Close();
         }
     }

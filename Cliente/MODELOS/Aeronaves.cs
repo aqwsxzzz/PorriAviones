@@ -284,6 +284,35 @@ namespace _1.Modelos
             }
         }
 
+        public void DevolverMaterialReciclable(string IdMaterialesModelo, string CantidadADevolver, string IdAcopio)
+        {
+            Conexion objetoConexion = new Conexion();
+            if (IdAcopio != "No Reciclable")
+            {
+
+                string query = "Update Acopio SET Dispobible +='" + CantidadADevolver + "' where IdAcopio = '" + IdAcopio + "';";
+                SqlCommand myComando = new SqlCommand(query, objetoConexion.establecerConexion());
+                SqlDataReader myReader = myComando.ExecuteReader();
+
+                while (myReader.Read())
+                {
+
+                }
+                objetoConexion.cerrarconexion();
+            }
+
+            string query2 = "DELETE MaterialesModelo where IdMaterialesModelo ='" + IdMaterialesModelo + "';";
+            SqlCommand myComando2 = new SqlCommand(query2, objetoConexion.establecerConexion());
+            SqlDataReader myReader2 = myComando2.ExecuteReader();
+
+            while (myReader2.Read())
+            {
+
+            }
+            objetoConexion.cerrarconexion();
+
+
+        }
 
     }
 }

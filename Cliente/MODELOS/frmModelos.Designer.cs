@@ -82,6 +82,7 @@
             this.labBajaMod = new System.Windows.Forms.Label();
             this.botListadoMod = new System.Windows.Forms.Button();
             this.botImprimirMod = new System.Windows.Forms.Button();
+            this.picboxRecuaIngreso = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModelos1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosSelecciondos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picboxRecuaMod4)).BeginInit();
@@ -92,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialesenModificacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picboxRecuaEstadoFecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picboxRecuaModeloAlias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxRecuaIngreso)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvModelos1
@@ -186,7 +188,7 @@
             this.texAliasMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.texAliasMod.Location = new System.Drawing.Point(812, 305);
             this.texAliasMod.Name = "texAliasMod";
-            this.texAliasMod.Size = new System.Drawing.Size(153, 33);
+            this.texAliasMod.Size = new System.Drawing.Size(190, 33);
             this.texAliasMod.TabIndex = 33;
             this.texAliasMod.Visible = false;
             this.texAliasMod.Click += new System.EventHandler(this.texAliasMod_Click);
@@ -204,7 +206,6 @@
             this.texDesdeMod.TabIndex = 28;
             this.texDesdeMod.Visible = false;
             this.texDesdeMod.Click += new System.EventHandler(this.texDesdeMod_Click);
-            this.texDesdeMod.TextChanged += new System.EventHandler(this.texDesdeMod_TextChanged);
             // 
             // texModeloMod
             // 
@@ -213,7 +214,7 @@
             this.texModeloMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.texModeloMod.Location = new System.Drawing.Point(526, 305);
             this.texModeloMod.Name = "texModeloMod";
-            this.texModeloMod.Size = new System.Drawing.Size(153, 33);
+            this.texModeloMod.Size = new System.Drawing.Size(190, 33);
             this.texModeloMod.TabIndex = 35;
             this.texModeloMod.Visible = false;
             this.texModeloMod.Click += new System.EventHandler(this.texModeloMod_Click);
@@ -281,7 +282,6 @@
             this.labModificaMod.TabIndex = 19;
             this.labModificaMod.Text = "Modificación de Registro";
             this.labModificaMod.Visible = false;
-            this.labModificaMod.Click += new System.EventHandler(this.labModificaMod_Click);
             // 
             // labEliminaMod
             // 
@@ -331,7 +331,7 @@
             // 
             // botModificarMod
             // 
-            this.botModificarMod.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.botModificarMod.BackColor = System.Drawing.Color.LightGray;
             this.botModificarMod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.botModificarMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botModificarMod.ForeColor = System.Drawing.SystemColors.ControlDark;
@@ -345,7 +345,7 @@
             // 
             // botEliminarMod
             // 
-            this.botEliminarMod.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.botEliminarMod.BackColor = System.Drawing.Color.LightGray;
             this.botEliminarMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.botEliminarMod.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.botEliminarMod.Location = new System.Drawing.Point(948, 885);
@@ -399,7 +399,7 @@
             // texIdMaterial
             // 
             this.texIdMaterial.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.texIdMaterial.Location = new System.Drawing.Point(90, 388);
+            this.texIdMaterial.Location = new System.Drawing.Point(90, 354);
             this.texIdMaterial.Name = "texIdMaterial";
             this.texIdMaterial.Size = new System.Drawing.Size(39, 20);
             this.texIdMaterial.TabIndex = 53;
@@ -407,7 +407,7 @@
             // 
             // texIdAcopio
             // 
-            this.texIdAcopio.Location = new System.Drawing.Point(90, 413);
+            this.texIdAcopio.Location = new System.Drawing.Point(90, 379);
             this.texIdAcopio.Name = "texIdAcopio";
             this.texIdAcopio.Size = new System.Drawing.Size(39, 20);
             this.texIdAcopio.TabIndex = 54;
@@ -635,7 +635,7 @@
             // texModelodgv
             // 
             this.texModelodgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.texModelodgv.Location = new System.Drawing.Point(90, 349);
+            this.texModelodgv.Location = new System.Drawing.Point(90, 315);
             this.texModelodgv.Multiline = true;
             this.texModelodgv.Name = "texModelodgv";
             this.texModelodgv.Size = new System.Drawing.Size(69, 30);
@@ -645,7 +645,7 @@
             // texAliasdgv
             // 
             this.texAliasdgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.texAliasdgv.Location = new System.Drawing.Point(165, 349);
+            this.texAliasdgv.Location = new System.Drawing.Point(165, 315);
             this.texAliasdgv.Multiline = true;
             this.texAliasdgv.Name = "texAliasdgv";
             this.texAliasdgv.Size = new System.Drawing.Size(67, 30);
@@ -689,6 +689,17 @@
             this.botImprimirMod.UseVisualStyleBackColor = true;
             this.botImprimirMod.Visible = false;
             this.botImprimirMod.Click += new System.EventHandler(this.botImprimirMod_Click_1);
+            // 
+            // picboxRecuaIngreso
+            // 
+            this.picboxRecuaIngreso.BackColor = System.Drawing.Color.Tan;
+            this.picboxRecuaIngreso.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picboxRecuaIngreso.Location = new System.Drawing.Point(55, 447);
+            this.picboxRecuaIngreso.Name = "picboxRecuaIngreso";
+            this.picboxRecuaIngreso.Size = new System.Drawing.Size(127, 39);
+            this.picboxRecuaIngreso.TabIndex = 73;
+            this.picboxRecuaIngreso.TabStop = false;
+            this.picboxRecuaIngreso.Visible = false;
             // 
             // frmModelos
             // 
@@ -738,6 +749,7 @@
             this.Controls.Add(this.picboxFotoPincho);
             this.Controls.Add(this.dgvModelos1);
             this.Controls.Add(this.picboxRecuaMod3);
+            this.Controls.Add(this.picboxRecuaIngreso);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmModelos";
             this.ShowIcon = false;
@@ -752,6 +764,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterialesenModificacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picboxRecuaEstadoFecha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picboxRecuaModeloAlias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picboxRecuaIngreso)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -761,7 +774,6 @@
         private System.Windows.Forms.Label labEliminaMod;
         private System.Windows.Forms.PictureBox picboxRecuaMotoresMod;
         private System.Windows.Forms.PictureBox picboxFotoPincho;
-        private System.Windows.Forms.Button botModificarMod;
      //   private System.Windows.Forms.DataGridView dgvMotores;
         private System.Windows.Forms.Label labRecuaMotoresMod;
         public System.Windows.Forms.TextBox texIdMaterial;
@@ -797,9 +809,11 @@
         public System.Windows.Forms.Label labBajaMod;
         public System.Windows.Forms.TextBox texDesdeMod;
         public System.Windows.Forms.Label labIngresoMod;
-        private System.Windows.Forms.Button botListadoMod;
         private System.Windows.Forms.Button botImprimirMod;
         public System.Windows.Forms.Button botEliminarMod;
         public System.Windows.Forms.Label labTituloMod;
+        public System.Windows.Forms.Button botModificarMod;
+        public System.Windows.Forms.Button botListadoMod;
+        private System.Windows.Forms.PictureBox picboxRecuaIngreso;
     }
 }

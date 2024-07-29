@@ -14,11 +14,8 @@ using System.Drawing.Printing;
 
 namespace _1.MODELOS
 {
-    
     public partial class frmModelos : Form
     {
-
-        string prueba;
         byte[] imageByte;
 
                                      private PrintDocument printDocument1 = new PrintDocument();  //para imprimir
@@ -65,10 +62,11 @@ namespace _1.MODELOS
         //Eliminacion de material reciclable
         public List<string> CantidadUsadaDeMaterialMod = new List<string>();
         public List<string> IdMaterialReciclableAEliminarMod = new List<string>();
+        public List<string> IdAcopioDeMaterialReciblableAEliminarMod = new List<string>();
+
 
         //Eliminacion de material no reciclable
         public List<string> IdMaterialNoReciclableAEliminarMod = new List<string>();
-
 
         public void ActualizarListaIdAcopio(List<string> nuevaLista)
         {
@@ -85,7 +83,7 @@ namespace _1.MODELOS
         public frmModelos()
         {
             InitializeComponent();
-
+           
             this.Load += frmModelos_Load;
             picboxFotoMod.BorderStyle = BorderStyle.None;
 
@@ -121,9 +119,8 @@ namespace _1.MODELOS
             dgvModelos1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(255, 192, 128); //  Color de las cabeceras de las columnas
             dgvModelos1.DefaultCellStyle.SelectionBackColor = Color.IndianRed;
             dgvModelos1.ClearSelection();
-            dgvModelos1.CellClick += DgvModelos1_CellClick;
+           // dgvModelos1.CellClick += DgvModelos1_CellClick;
             dgvModelos1.Location = new Point(740, 300);
-
 
             dgvDatosSelecciondos.ColumnCount = 10;
 
@@ -183,8 +180,7 @@ namespace _1.MODELOS
             aeronaves.mostrarModelos(dgvModelos1);
 
             dgvMaterialesenModificacion.AutoGenerateColumns = false;
-            dgvMaterialesenModificacion.ColumnCount = 10;
-
+            dgvMaterialesenModificacion.ColumnCount = 11;
 
             dgvMaterialesenModificacion.Columns[0].Name = "Familia";
             dgvMaterialesenModificacion.Columns[0].HeaderText = "          Familia";
@@ -225,19 +221,25 @@ namespace _1.MODELOS
             dgvMaterialesenModificacion.Columns[8].Name = "IdMaterial";
             dgvMaterialesenModificacion.Columns[8].HeaderText = "IdMaterial";
             dgvMaterialesenModificacion.Columns[8].DataPropertyName = "IdMaterial";
-            dgvMaterialesenModificacion.Columns[8].Visible = false;
+            //dgvMaterialesenModificacion.Columns[8].Visible = false;
 
             dgvMaterialesenModificacion.Columns[9].Name = "IdMaterialesModelo";
             dgvMaterialesenModificacion.Columns[9].HeaderText = "IdMaterialesModelo";
             dgvMaterialesenModificacion.Columns[9].DataPropertyName = "IdMaterialesModelo";
-            dgvMaterialesenModificacion.Columns[9].Visible = false;
+            //dgvMaterialesenModificacion.Columns[9].Visible = false;
 
-           // dgvMaterialesenModificacion.BackgroundColor = Color.Blue;
+            dgvMaterialesenModificacion.Columns[10].Name = "IdAcopio";
+            dgvMaterialesenModificacion.Columns[10].HeaderText = "IdAcopio";
+            dgvMaterialesenModificacion.Columns[10].DataPropertyName = "IdAcopio";
+            //dgvMaterialesenModificacion.Columns[10].Visible = false;
+
+
+            // dgvMaterialesenModificacion.BackgroundColor = Color.Blue;
 
             botModificarMod.Enabled = false;
             botEliminarMod.Enabled = false;
         }
-
+                
         private void dgvModelos1_SelectionChanged(object sender, EventArgs e)
         {
             // Verificar si hay alguna fila seleccionada y si es la primera fila
@@ -247,12 +249,6 @@ namespace _1.MODELOS
                 dgvModelos1.ClearSelection();
             }
         }
-
-        // Pasa los valores a un textbox
-        private void DgvModelos1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }  
 
         private void botSalirMod_Click(object sender, EventArgs e)
         {
@@ -313,6 +309,7 @@ namespace _1.MODELOS
             picboxRecuaEstadoFecha.Visible = false;
             picboxRecuaModeloAlias.Visible = false;
             picboxFotoMod.Visible = false;
+            picboxRecuaIngreso.Visible = false;
            
             dattimFechaMod.Visible = false;
         }
@@ -326,11 +323,12 @@ namespace _1.MODELOS
             botIngresarMaterialMod.Font = new Font(botIngresarMaterialMod.Font, FontStyle.Bold);
             botIngresarMaterialMod.Font = new Font(botIngresarMaterialMod.Font.FontFamily, 9);
 
-            labIngresoMod.Location = new Point(1159, 324);
+            labIngresoMod.Location = new Point(1119, 374);
+            labIngresoMod.BackColor = Color.Tan;
             labModeloMod.Visible = true;
-            labModeloMod.Location = new Point(648, 378);
+            labModeloMod.Location = new Point(630, 428);
             labModeloMod.BackColor = Color.Tan ;
-            labAliasMod.Location = new Point(900, 378);
+            labAliasMod.Location = new Point(880, 428);
             labAliasMod.BackColor = Color.Tan ;
             
             texModeloMod.Text = "";
@@ -342,45 +340,43 @@ namespace _1.MODELOS
             texModeloMod.Visible = true;
             texModeloMod.Focus();
             texModelodgv.Visible = false;
-            texModeloMod.BackColor = Color.White ;
-            texModeloMod.Location = new Point(650, 400);
+            texModeloMod.BackColor = Color.AntiqueWhite;
+            texModeloMod.Location = new Point(630, 450);
             texModeloMod.ForeColor = Color.Black;
             texModeloMod.BorderStyle = BorderStyle.Fixed3D;
-            texAliasMod.BackColor = Color.White ;
-            texAliasMod.Location = new Point(900, 400);
+            texAliasMod.BackColor = Color.AntiqueWhite;
+            texAliasMod.Location = new Point(880, 450);
             texAliasMod.ForeColor = Color.Black;
             texAliasMod.BorderStyle = BorderStyle.Fixed3D;
 
             botCancelarMod.Visible = true;
-            botCancelarMod.Location = new Point(1215, 900);
+            botCancelarMod.Location = new Point(1310, 650);
             botSalirMod.Visible = false;
             botModificarMod.Visible = false;
             botEliminarMod.Visible = false;
             botListadoMod.Visible = false;
             botIngresarMod.Visible = false;
-            botIngresarMaterialMod.Location = new Point(1170, 397);
+            botIngresarMaterialMod.Location = new Point(1150, 447);
 
             picboxRecuaMod3.Visible = true;
             picboxRecuaMod3.BackColor = Color.Tan ;
-            picboxRecuaMod3.Location = new Point(600, 356);
-            picboxRecuaMod3.Size = new System.Drawing.Size(771, 123);
+            picboxRecuaMod3.Location = new Point(580, 406);
+            picboxRecuaMod3.Size = new System.Drawing.Size(751, 123);
             picboxFotoMod.Visible = false;
             picboxRecuaMod4.Visible = true;
-            picboxRecuaMod4.Location = new Point(1117, 313);
-            picboxRecuaMod4.BackColor = Color.Bisque;
+            picboxRecuaMod4.Location = new Point(1078, 362);
+            picboxRecuaMod4.BackColor = Color.Tan;
+            picboxRecuaIngreso.Visible = true;
+            picboxRecuaIngreso.Location = new Point(480, 320);
+            picboxRecuaIngreso.Width = 965;
+            picboxRecuaIngreso.Height = 300;
+                
    
             dgvModelos1.Visible = false;
             dgvModelos1.Location = new Point(478, 285);
 
             NuevoOModificacion = "Nuevo";
             dgvDatosSelecciondos.Rows.Clear();
-        }
-
-        public void frmModelos_Paint()
-        {
-            Graphics linea = this.CreateGraphics();
-            Pen lapiz = new Pen(Color.Black);
-            linea.DrawLine(lapiz, 400, 100, 1000, 400);
         }
 
         private void botModificarMod_Click(object sender, EventArgs e)
@@ -393,7 +389,7 @@ namespace _1.MODELOS
             labModeloMod.Location = new Point(534, 286);
             labAliasMod.Visible = true;
             labAliasMod.BackColor = Color.Tan;
-            labAliasMod.Location = new Point(783, 286);
+            labAliasMod.Location = new Point(760, 286);
             labEstadoMod.Visible = true;
             labEstadoMod.BackColor = Color.Tan;
             labDesdeMod.Visible = true;
@@ -409,7 +405,7 @@ namespace _1.MODELOS
             texModeloMod.Location = new Point (534, 305);
             texAliasMod.Visible = true;
             texAliasMod.BackColor = Color.Tan;
-            texAliasMod.Location = new Point(783, 305);
+            texAliasMod.Location = new Point(760, 305);
             texEstadoMod.Visible = true;
             texModeloMod.Focus();
 
@@ -526,13 +522,14 @@ namespace _1.MODELOS
             FuncionesEliminar.mostrarMateriales(frmEliminar.dgvListaMateriales, dgvModelos1.CurrentRow.Cells[4].Value.ToString());
 
             frmEliminar.Show();
-            frmEliminar . Location = new Point(160, 350);
+            frmEliminar . Location = new Point(160, 300);
             botSalirMod.Visible = false;
             botIngresarMod.Visible = false;
             botModificarMod.Visible = false;
             botEliminarMod.Visible = false;
             botListadoMod.Visible = false;
         }
+
         private void texModeloMod_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
@@ -580,6 +577,12 @@ namespace _1.MODELOS
                 objetostock.GuardarModelos(texModeloMod, texAliasMod, texEstadoMod, texDesdeMod, imageByte, acopiosArray, cantidadArray, cantidadDisponibleActualizadaArray);
                 objetostock.mostrarModelos(dgvModelos1);
 
+                botIngresarMod.Visible = true;
+                botModificarMod.Visible = true;
+                botModificarMod.Enabled = false;
+                botEliminarMod.Visible = true;
+                botEliminarMod.Enabled = false;
+                botListadoMod.Visible = true;
                 botSalirMod.Visible = true;
             }
             else if (NuevoOModificacion == "Modificacion")
@@ -618,6 +621,24 @@ namespace _1.MODELOS
                 botEliminarMod.Visible = true;
                 botEliminarMod.Enabled = false;
                 botListadoMod.Visible = true;
+
+                if (IdMaterialReciclableAEliminarMod.Count > 0)
+                {
+                    for (int i = 0; i < IdMaterialReciclableAEliminarMod.Count; i++)
+                    {
+                        Aeronaves.DevolverMaterialReciclable(IdMaterialReciclableAEliminarMod[i], CantidadUsadaDeMaterialMod[i], IdAcopioDeMaterialReciblableAEliminarMod[i]);
+                    }
+                }
+                if (IdMaterialNoReciclableAEliminarMod.Count > 0)
+                {
+                    for (int i = 0; i < IdMaterialNoReciclableAEliminarMod.Count; i++)
+                    {
+                        string Cantidad = "0";
+                        string IdAcopio = "No Reciclable";
+                        Aeronaves.DevolverMaterialReciclable(IdMaterialNoReciclableAEliminarMod[i], Cantidad, IdAcopio);
+                    }
+
+                }
             }
             labIngresoMod.Visible = false;
             labModificaMod.Visible = false;
@@ -644,11 +665,9 @@ namespace _1.MODELOS
 
             botCargarFotoMod.Visible = false;
             botGuardarMod.Visible = false;
-         //   botIngresarMod.Visible = false;
-         //  botModificarMod.Visible = false;
-         //   botEliminarMod.Visible = false;
             botCancelarMod.Visible = false;
             botIngresarMaterialMod.Visible = false;
+            botSalirMod.Visible = true;
 
             picboxRecuaMod3.Visible = false;
             picboxRecuaMod4.Visible = false;
@@ -661,16 +680,21 @@ namespace _1.MODELOS
             
             dgvModelos1.Visible = true;
             dgvModelos1.Location = new Point(740, 300);
-            dgvDatosSelecciondos.Visible = false;
-            dgvMaterialesenModificacion.Visible = false;
-
-            botSalirMod.Visible = true;
-            Modelos.Aeronaves aeronaves = new Modelos.Aeronaves();
-            aeronaves.mostrarModelos(dgvModelos1);
             dgvModelos1.ClearSelection();
             dgvModelos1.CurrentCell = null;
             dgvModelos1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvModelos1.MultiSelect = false;
+            dgvDatosSelecciondos.Visible = false;
+            dgvMaterialesenModificacion.Visible = false;
+           
+            Modelos.Aeronaves aeronaves = new Modelos.Aeronaves();
+            aeronaves.mostrarModelos(dgvModelos1);
+
+            dgvModelos1.ClearSelection();
+            dgvModelos1.CurrentCell = null;
+            dgvModelos1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvModelos1.MultiSelect = false;
+
         }
 
         private void botIngresarMod_KeyPress(object sender, KeyPressEventArgs e)
@@ -686,9 +710,11 @@ namespace _1.MODELOS
             Modelos.Aeronaves aero = new Modelos.Aeronaves();
 
             botModificarMod.Enabled = true ;
+            botModificarMod.BackColor = SystemColors.ControlLightLight;
             botModificarMod.ForeColor  = Color.Black;
             botModificarMod.FlatStyle = FlatStyle.Popup;
             botEliminarMod.Enabled = true ;
+            botEliminarMod .BackColor = SystemColors.ControlLightLight;
             botEliminarMod.ForeColor = Color.Black;
             botEliminarMod.FlatStyle = FlatStyle.Popup;
 
@@ -701,25 +727,29 @@ namespace _1.MODELOS
         {
             MODELOS.SeleccionMaterialMod SeleccionMat = new MODELOS.SeleccionMaterialMod(this);
             labTituloMod.Location = new Point(872,50);
-            labIngresoMod.Location = new Point(650,125);
-            labModificaMod.Visible = true;
-            labModificaMod.Location = new Point(1043, 125);
-          
+                                
             botSalirMod.Visible = false;
             botIngresarMod.Visible = false;
             botCargarFotoMod.Visible = false;
             botCancelarMod.Visible = false;
             SeleccionMat.botSalirSel.Visible = true;
-            SeleccionMat.botSalirSel.Location = new Point(805, 819);
-                        
+            SeleccionMat.botSalirSel.Location = new Point(805, 835);
+            SeleccionMat.botAceptarSel.Focus();
+
             picboxRecuaMod3.Visible = false;
             picboxRecuaMod4.Location = new Point(1023,114);
+            picboxRecuaMod4.BackColor = Color.Bisque;
+            picboxRecuaIngreso.Visible = false;
 
             dgvModelos1.Visible = false;
             dgvMaterialesenModificacion.Visible = false;
             SeleccionMat.dgvMaterialesSeleccionadosSel.Visible = false;
             if (NuevoOModificacion == "Nuevo")
             {
+                labIngresoMod.Visible = true;
+                labIngresoMod.Location = new Point(1065, 125);
+                labIngresoMod.BackColor = Color.Bisque;
+
                 if (dgvDatosSelecciondos.Rows.Count > 0)
                 {
                 // Copia los datos de dataGridView1 a dataGridView2
@@ -740,9 +770,12 @@ namespace _1.MODELOS
                 SeleccionMat.dgvMaterialesSeleccionadosSel.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 SeleccionMat.dgvMaterialesSeleccionadosSel.MultiSelect = false;
                 }
+                botIngresarMaterialMod.Visible = false;
             }
             else if (NuevoOModificacion == "Modificacion")
             {
+                labModificaMod.Visible = true;
+                labModificaMod .Location = new Point(1040, 125);
                 // Copia los datos de dataGridView1 a dataGridView2
                 foreach (DataGridViewRow row in dgvMaterialesenModificacion.Rows)
                 {
@@ -762,7 +795,7 @@ namespace _1.MODELOS
                 SeleccionMat.dgvMaterialesSeleccionadosSel.MultiSelect = false;
             }
         SeleccionMat.ShowDialog();
-            picboxFotoMod.BringToFront();
+        picboxFotoMod.BringToFront();
         }
 
         // Manejar la información recibida del formulario secundario
@@ -774,6 +807,7 @@ namespace _1.MODELOS
         private void dattimFechaMod_ValueChanged(object sender, EventArgs e)
         {
             botCargarFotoMod.Visible = true;
+            botGuardarMod.Visible = true;
             texModeloMod.BorderStyle = BorderStyle.None;
 
             string textoACortar = dattimFechaMod.Value.Date.ToString();
@@ -781,7 +815,6 @@ namespace _1.MODELOS
 
             texDesdeMod.Location = new Point(910,724);
             texDesdeMod.BorderStyle = BorderStyle.None;
-           // texDesdeMod.BackColor = SystemColors.ControlDark;
             texDesdeMod.Font = new Font(texDesdeMod.Font.FontFamily, 16);
 
             if (indiceEspacio != -1)
@@ -808,7 +841,6 @@ namespace _1.MODELOS
                 botGuardarMod.Visible = true;
                 botGuardarMod.Focus();
                 picboxFotoMod.Visible = true;
-              //  picboxFotoMod.BorderStyle = BorderStyle.None;
             }
             botGuardarMod.Focus();
         }
@@ -893,9 +925,6 @@ namespace _1.MODELOS
         {
             texModeloMod.BackColor = Color.Linen ;
             texModeloMod.BorderStyle = BorderStyle.Fixed3D;
-           // texModeloMod.Focus();
-
-           // texAliasMod.BackColor = Color.Linen ;
             texAliasMod.ForeColor = Color.Black;
             texAliasMod.BorderStyle = BorderStyle.None;
         }
@@ -909,7 +938,6 @@ namespace _1.MODELOS
             texModeloMod.BackColor = Color.Tan;
             texModeloMod.ForeColor = Color.Black;
             texModeloMod.BorderStyle = BorderStyle.None;
-
         }
 
         private void texEstadoMod_Click(object sender, EventArgs e)
@@ -933,29 +961,20 @@ namespace _1.MODELOS
             dattimFechaMod.Focus();
         }
 
-        private void dgvModelos1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void labModificaMod_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void texDesdeMod_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void botListadoMod_Click(object sender, EventArgs e)
         {
             frmListadoMod frmListadoMod = new frmListadoMod(this);
             frmListadoMod.StartPosition = FormStartPosition.Manual;
             frmListadoMod.Location = new Point(500, 300);
-            dgvModelos1.Visible = false;
+            
             botSalirMod.Visible = false;
+            botIngresarMod.Visible = false;
+            botModificarMod.Visible = false;
+            botEliminarMod.Visible = false;
+            botListadoMod.Visible = false;
+
+            dgvModelos1.Visible = false;
+
             frmListadoMod.ShowDialog();
         }
 

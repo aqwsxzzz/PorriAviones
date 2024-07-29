@@ -387,6 +387,7 @@ namespace _1.INSUMOS
             frmMateriales.botEliminarMat.Visible = true;
             frmMateriales.botEliminarMat.Location = new Point(856, 940);
             frmMateriales.botListarMat.Visible = true;
+            frmMateriales.botCancelarIngresoMat.Visible = false;
             frmMateriales.botListarMat.Location = new Point(1020, 940);
             frmMateriales.botSalirMat.Visible = true;
 
